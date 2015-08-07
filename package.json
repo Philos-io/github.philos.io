@@ -1,0 +1,26 @@
+{
+  "name": "github.philos.io",
+  "version": "1.0.0",
+  "description": "angularjs version of github user's profile for the js bootcamp",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Philos-io/github.philos.io.git"
+  },
+  "keywords": [
+    "angularjs",
+    "javascript"
+  ],
+  "author": "davy engone",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Philos-io/github.philos.io/issues"
+  },
+  "homepage": "https://github.com/Philos-io/github.philos.io#readme"
+}
