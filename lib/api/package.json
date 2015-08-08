@@ -1,0 +1,27 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "api for the github apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Philos-io/api.github.philos.io.git"
+  },
+  "keywords": [
+    "express",
+    "javascript"
+  ],
+  "author": "davy engone",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Philos-io/api.github.philos.io/issues"
+  },
+  "homepage": "https://github.com/Philos-io/api.github.philos.io#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "koa": "^0.21.0"
+  }
+}
