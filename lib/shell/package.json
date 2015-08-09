@@ -10,5 +10,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "davy engone",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.4.3",
+    "angular-route": "^1.4.3",
+    "angular-ui-router": "^0.2.15"
+  }
 }
