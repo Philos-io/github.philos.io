@@ -1,17 +1,11 @@
 import angular from 'angular';
+import '../lib/shell/';
 
 var {
 	bootstrap, module
 } = angular;
 
 
-module('github.philos', [])
-	.directive('githubPhilos', function(){
-		
-		return {
-			restrict: 'E',
-			template:'the apps is running'
-		};
-	});
-
+module('github.philos', ['github.philos.shell'])
+	
 bootstrap(document.body, ['github.philos']);
