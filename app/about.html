@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<title>Github by Philos</title>
+
+	<style>
+	.navbar-brand{
+		padding: 5px 10px 0 100px;
+	}
+
+	.fa-2x {
+	    font-size: 2.2em;
+	}
+
+	.navbar-form .form-control{
+		width: 400px;
+	}
+
+	.header-nav-item {
+	    float: left;
+	    
+	}
+
+	.header-nav-link{
+	    display: block;
+	    padding: 12px 8px;
+	    font-size: 15px;
+	    font-weight: bold;
+	    line-height: 20px;
+	    color: #333;
+	}
+
+	.header-nav {
+	    list-style: none;
+	    margin-left: -18px;
+	}
+
+	a{
+		text-decoration: none;
+	}
+
+	img.profile.logo{
+		width: 20px;
+	    height: 20px;
+	    border-radius: 3px;
+	}
+
+	.tab-pane{
+	    padding-top: 20px;
+	}
+
+	.public-contributions{
+	    width: 97%;
+    	margin-left: 1.5%;
+	}
+
+	.fullname{
+		display: block;
+	    overflow: hidden;
+	    width: 100%;
+	    font-size: 26px;
+	    line-height: 30px;
+	    text-overflow: ellipsis;
+	}
+
+	.username{
+		display: block;
+	    overflow: hidden;
+	    width: 100%;
+	    font-size: 20px;
+	    font-style: normal;
+	    font-weight: 300;
+	    line-height: 24px;
+	    color: #666;
+	    text-overflow: ellipsis;
+	}
+
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+  		<div class="container">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="#">
+	        	<i class="fa fa-2x fa-github"></i>
+		      </a>
+		    </div>
+		    <form class="navbar-form navbar-left" role="search">
+			  	<div class="form-group">
+			    	<input type="text" class="form-control input" placeholder="Search GitHub">
+			  	</div>
+			</form>
+
+			<ul class="header-nav navbar-left">
+				<li class="header-nav-item">
+					<a href="/pulls" class="header-nav-link">Pull Requests</a>
+				</li>
+				<li class="header-nav-item">
+					<a href="/issues" class="header-nav-link">Issues</a>
+				</li>
+				<li class="header-nav-item">
+					<a href="/gist" class="header-nav-link">Gist</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+		        <li class="dropdown">
+		          <a href="#" 
+		          class="dropdown-toggle" 
+		          data-toggle="dropdown" 
+		          role="button" 
+		          aria-haspopup="true" 
+		          aria-expanded="false">
+					<img src="images/davy.jpeg" class="profile logo" alt="">
+		          <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		          	<li>Signed in as <br/> <strong>davyengone</strong></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="/davyengone">Your profile</a></li>
+		            <li><a href="/stars">Your stars</a></li>
+		            <li><a href="/explore">Explore</a></li>
+		            <li><a href="/help">Help</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="/settings/profile">Settings</a></li>
+		            <li><a href>Sign out</a></li>
+		          </ul>
+		        </li>
+	      	</ul>
+	  	</div>
+	</nav>
+
+	<main class="container">
+		<div class="col-lg-2 col-lg-offset-1">
+			<div class="row">
+				<img src="images/davyengone.jpeg" alt="" width="190" class="img-rounded"/>
+					
+				<h1>
+					<span class="fullname">Davy Engone</span>
+					<span class="username">davyengone</span>
+				</h1>
+			</div>
+			<div class="row">
+				
+			</div>
+		</div>
+		<div class="col-lg-9">
+		  	<div>
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active">
+						<a href="#contributions" aria-controls="contributions" role="tab" data-toggle="tab">Contributions</a>
+					</li>
+					<li role="presentation"><a href="#repositories" aria-controls="repositories" role="tab" data-toggle="tab">Repositories</a></li>
+					<li role="presentation"><a href="#publicactivity" aria-controls="public activity" role="tab" data-toggle="tab">Public Activity</a></li>
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="contributions">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="list-group">
+									<a href="#" class="list-group-item active">
+										Popular Repositories
+									</a>
+									<a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+									<a href="#" class="list-group-item">Morbi leo risus</a>
+									<a href="#" class="list-group-item">Porta ac consectetur ac</a>
+									<a href="#" class="list-group-item">Vestibulum at eros</a>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="list-group">
+									<a href="#" class="list-group-item active">
+										Repositories contributed to
+									</a>
+									<a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+									<a href="#" class="list-group-item">Morbi leo risus</a>
+									<a href="#" class="list-group-item">Porta ac consectetur ac</a>
+									<a href="#" class="list-group-item">Vestibulum at eros</a>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="list-group public-contributions">
+								<a href="#" class="list-group-item active col-lg-12">
+									Public contributions
+								</a>
+							</div>
+						</div>	
+					</div>
+					<div role="tabpanel" class="tab-pane" id="repositories">
+						Another thing here
+					</div>
+					<div role="tabpanel" class="tab-pane" id="publicactivity">
+						and finally here
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</main>
+	
+	<!-- <github-philos></github-philos> -->
+	<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="build.js"></script>
+	<script>
+		$('#myTabs a').click(function (e) {
+		  e.preventDefault()
+		  $(this).tab('show')
+		})
+	</script>
+</body>
+</html>

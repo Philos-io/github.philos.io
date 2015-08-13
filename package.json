@@ -33,7 +33,10 @@
   },
   "dependencies": {
     "angular": "^1.4.3",
+    "angular-route": "^1.4.3",
+    "angular-router": "0.0.2",
     "bootstrap": "^3.3.5",
-    "jquery": "^2.1.4"
+    "jquery": "^2.1.4",
+    "qs": "^4.0.0"
   }
 }
