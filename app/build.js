@@ -65,7 +65,11 @@
 
 	_module('github.philos').controller('ShellController', ShellController).config(function ($routeProvider, $locationProvider) {
 
-		$routeProvider.when('/github/callback', {
+		$routeProvider.when('/', {
+			template: 'inside home',
+			controller: function controller($route) {}
+		}).when('/github/callback', {
+			template: 'inside callback',
 			controller: function controller($scope, $route) {
 				debugger;
 			}

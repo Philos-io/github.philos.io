@@ -15,13 +15,39 @@ module('github.philos')
 	.config(function($routeProvider, $locationProvider){
 
 		$routeProvider
+			.when('/', {
+				template: '',
+				controller: function($route){
+				}
+			})
 			.when('/github/callback', {
-				controller: function($scope, $route){
-					debugger
+				template: 'inside callback',
+				controller: function($route, $window, $http){
+					var code = $route.current.params.code;
+
+					// Save the code in localstorage
+
+					$window.localstorage.code = code;
+
+
+					var url = "https://github-philos.herokuapp.com/authenticate";
+
+					$http
+						.get(url, params)
+						.then(function(response){
+
+
+							debugger
+						}, function(err){
+
+							debugger
+						})
+
+
 				}
 			});
 
-		$locationProvider.html5Mode(true);
+			$locationProvider.html5Mode(true);
 	});
 
 
