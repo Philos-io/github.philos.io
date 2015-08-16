@@ -17,27 +17,33 @@ module('github.philos')
 		$routeProvider
 			.when('/', {
 				template: '',
-				controller: function($route){
+				controller: function($window, $http){
+					if ($window.localStorage.token) {
+						debugger;
+						$http
+							.get()
+					}
 				}
 			})
 			.when('/github/callback', {
 				template: 'inside callback',
-				controller: function($route, $window, $http){
+				controller: function($route, $window, $http, $location){
 					var code = $route.current.params.code;
 
 					// Save the code in localstorage
 
-					$window.localstorage.code = code;
+					$window.localStorage.code = code;
 
 
-					var url = "https://github-philos.herokuapp.com/authenticate";
+					var url = "https://philos-github.herokuapp.com/authenticate/"+code;
+
+					debugger
 
 					$http
-						.get(url, params)
+						.get(url)
 						.then(function(response){
-
-
-							debugger
+							$window.localStorage.token = response.data.token;
+							$location.path('/');
 						}, function(err){
 
 							debugger
@@ -53,8 +59,6 @@ module('github.philos')
 
 function ShellController($http, $log, $route) {
 	$log.debug('inside $log', window.location.origin);
-
-
 	this.connect = function(){
 
 		var url = "https://github.com/login/oauth/authorize?";
@@ -72,10 +76,5 @@ function ShellController($http, $log, $route) {
 }
 
 bootstrap(document.body, ['github.philos']);
-
-
-// f344a987c3d87a83b193
-
-// 7a814ebd607af91f1e36392ba79d097815bb5082
 
 
