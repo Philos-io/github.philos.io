@@ -19,9 +19,17 @@ module('github.philos')
 				template: '',
 				controller: function($window, $http){
 					if ($window.localStorage.token) {
+
+						var token = $window.localStorage.token;
 						debugger;
+
+						var url = "https://api.github.com/user/"+token;
 						$http
-							.get()
+							.get(url)
+							.then(function(user){
+								debugger
+							});
+
 					}
 				}
 			})
@@ -33,7 +41,6 @@ module('github.philos')
 					// Save the code in localstorage
 
 					$window.localStorage.code = code;
-
 
 					var url = "https://philos-github.herokuapp.com/authenticate/"+code;
 
@@ -47,9 +54,7 @@ module('github.philos')
 						}, function(err){
 
 							debugger
-						})
-
-
+						});
 				}
 			});
 
