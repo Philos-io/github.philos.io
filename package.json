@@ -36,6 +36,7 @@
     "angular-route": "^1.4.3",
     "angular-router": "0.0.2",
     "bootstrap": "^3.3.5",
+    "cors": "^2.7.1",
     "express": "^4.13.3",
     "jquery": "^2.1.4",
     "qs": "^4.0.0"
