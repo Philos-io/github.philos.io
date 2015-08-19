@@ -95,6 +95,10 @@
 						vm.model.starred = response.data.length;
 					});
 
+					$http.get(vm.model.organizations_url, { cache: true }).then(function (response) {
+						vm.model.organisations = response.data;
+					});
+
 					// Define all the calls to get more data
 				});
 			}

@@ -57,16 +57,11 @@
 		        </a>
 	      	</div>
 	      	<div class="clearfix">
-	          <h3>Organizations</h3>
-	              <a href="/hackreactor" aria-label="hackreactor" class="tooltipped tooltipped-n avatar-group-item" itemprop="follows">
-	              	<img alt="@hackreactor" class="avatar" height="42" src="https://avatars3.githubusercontent.com/u/2824164?v=3&amp;s=84" width="42"></a>
-	              <a href="/thomasstreet" aria-label="thomasstreet" class="tooltipped tooltipped-n avatar-group-item" itemprop="follows"><img alt="@thomasstreet" class="avatar" height="42" src="https://avatars0.githubusercontent.com/u/3904126?v=3&amp;s=84" width="42"></a>
-	              <a href="/Sporten" aria-label="Sporten" class="tooltipped tooltipped-n avatar-group-item" itemprop="follows"><img alt="@Sporten" class="avatar" height="42" src="https://avatars3.githubusercontent.com/u/6414572?v=3&amp;s=84" width="42"></a>
-	              <a href="/Philos-io" aria-label="Philos-io" class="tooltipped tooltipped-n avatar-group-item" itemprop="follows"><img alt="@Philos-io" class="avatar" height="42" src="https://avatars0.githubusercontent.com/u/7216602?v=3&amp;s=84" width="42"></a>
-	              <a href="/Neocodis" aria-label="Neocodis" class="tooltipped tooltipped-n avatar-group-item" itemprop="follows"><img alt="@Neocodis" class="avatar" height="42" src="https://avatars1.githubusercontent.com/u/7491811?v=3&amp;s=84" width="42"></a>
-	              <a href="/codeforbelgium" aria-label="codeforbelgium" class="tooltipped tooltipped-n avatar-group-item" itemprop="follows"><img alt="@codeforbelgium" class="avatar" height="42" src="https://avatars2.githubusercontent.com/u/7712217?v=3&amp;s=84" width="42"></a>
-	              <a href="/codeforgabon" aria-label="codeforgabon" class="tooltipped tooltipped-n avatar-group-item" itemprop="follows"><img alt="@codeforgabon" class="avatar" height="42" src="https://avatars2.githubusercontent.com/u/7712280?v=3&amp;s=84" width="42"></a>
-        </div>
+	          	<h3>Organizations</h3>
+              	<a ng-repeat="org in user.model.organisations" ng-href="/{{org.login}}" class="tooltipped tooltipped-n avatar-group-item">
+              		<img alt="@{{org.login}}" class="avatar" height="42" ng-src="{{org.avatar_url}}" width="42">
+          		</a>
+    		</div>
 		</div>
 	</div>
 	<div class="col-lg-9">
