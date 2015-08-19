@@ -16,29 +16,41 @@ module('github.philos')
 
 		$routeProvider
 			.when('/:login', {
-				template:'user.html',
-				controllerAs: 'user',
-				controller: function($http, $routeParams, $log){
-
-					var url = 'https://api.github.com/users/'+$routeParams.login;
-
-
-					$http
-						.get(url)
-						.then(function(response){
-
-							this.model = response.data;
-
-							debugger
-
-							// Define all the calls to get more data
-						});
-				}
+				//templateUrl:'templates/user.html',
+				template: '<gp-user-profile/>'
+				
 			});
 	})
-	.directive('githubNavbar', function(){
+	.directive('gpNavbar', function(){
 		return {
 			templateUrl: 'templates/github-navbar.html'
+		}
+	})
+	.directive('gpUserProfile', function(){
+		return {
+			templateUrl: 'templates/github-main.html',
+			controllerAs: 'user',
+			controller: function($http, $routeParams, $log){
+
+				var url = 'https://api.github.com/users/'+$routeParams.login;
+
+				var vm = this;
+
+				$http
+					.get(url, {cache: true})
+					.then(function(response){
+
+						vm.model = response.data;
+
+						$http.get(url+ '/starred', {cache: true})
+							.then(function(response){
+
+								vm.model.starred = response.data.length;
+							})						
+
+						// Define all the calls to get more data
+					});
+			}
 		}
 	});
 

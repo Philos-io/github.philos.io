@@ -1,0 +1,128 @@
+<main class="container">
+	<div class="col-lg-2 col-lg-offset-1">
+		<div class="row">
+			<img ng-src="{{user.model.avatar_url}}" alt="" width="190" class="img-rounded"/>
+				
+			<h1 class="vcard-names">
+				<span class="fullname">{{user.model.name}}</span>
+				<span class="username">{{user.model.login}}</span>
+			</h1>
+			<ul class="vcard-details">
+      			<li class="vcard-detail">
+      				<span class="octicon">
+      					<i class="fa fa-building-o"></i>
+      				</span>{{user.model.company}}
+  				</li>
+
+			  	<li class="vcard-detail">
+			  		<span class="octicon">
+			  			<i class="fa fa-globe"></i>
+			  		</span>{{user.model.location}}
+		  		</li>
+
+			    <li class="vcard-detail">
+			    	<span class="octicon">
+			    		<i class="fa fa-envelope-o"></i>
+			    	</span>
+			    	<a class="email" href="mailto:{{user.model.email}}">{{user.model.email}}</a>
+		    	</li>
+
+			  	<li class="vcard-detail" itemprop="url">
+			  		<span class="octicon">
+			  			<i class="fa fa-link"></i>
+			  		</span>
+			  		<a ng-href="{{user.model.blog}}" class="url">{{user.model.blog}}"</a>
+		  		</li>
+
+			  	<li class="vcard-detail">
+			  		<span class="octicon">
+			  			<i class="fa fa-clock-o"></i>
+			  		</span>
+			  		<span class="join-label">Joined on </span>
+			  		<time class="join-date">{{user.model.created_at | date}}</time>
+		  		</li>
+			</ul>
+			<div class="vcard-stats">
+		        <a class="vcard-stat" href="/davyengone/followers">
+		          <strong class="vcard-stat-count">{{user.model.followers}}</strong>
+		          <span class="text-muted">Followers</span>
+		        </a>
+		        <a class="vcard-stat" href="/stars">
+		          <strong class="vcard-stat-count">{{user.model.starred}}</strong>
+		          <span class="text-muted">Starred</span>
+		        </a>
+		        <a class="vcard-stat" href="/davyengone/following">
+		          <strong class="vcard-stat-count">{{user.model.following}}</strong>
+		          <span class="text-muted">Following</span>
+		        </a>
+	      	</div>
+	      	<div class="clearfix">
+	          <h3>Organizations</h3>
+	              <a href="/hackreactor" aria-label="hackreactor" class="tooltipped tooltipped-n avatar-group-item" itemprop="follows">
+	              	<img alt="@hackreactor" class="avatar" height="42" src="https://avatars3.githubusercontent.com/u/2824164?v=3&amp;s=84" width="42"></a>
+	              <a href="/thomasstreet" aria-label="thomasstreet" class="tooltipped tooltipped-n avatar-group-item" itemprop="follows"><img alt="@thomasstreet" class="avatar" height="42" src="https://avatars0.githubusercontent.com/u/3904126?v=3&amp;s=84" width="42"></a>
+	              <a href="/Sporten" aria-label="Sporten" class="tooltipped tooltipped-n avatar-group-item" itemprop="follows"><img alt="@Sporten" class="avatar" height="42" src="https://avatars3.githubusercontent.com/u/6414572?v=3&amp;s=84" width="42"></a>
+	              <a href="/Philos-io" aria-label="Philos-io" class="tooltipped tooltipped-n avatar-group-item" itemprop="follows"><img alt="@Philos-io" class="avatar" height="42" src="https://avatars0.githubusercontent.com/u/7216602?v=3&amp;s=84" width="42"></a>
+	              <a href="/Neocodis" aria-label="Neocodis" class="tooltipped tooltipped-n avatar-group-item" itemprop="follows"><img alt="@Neocodis" class="avatar" height="42" src="https://avatars1.githubusercontent.com/u/7491811?v=3&amp;s=84" width="42"></a>
+	              <a href="/codeforbelgium" aria-label="codeforbelgium" class="tooltipped tooltipped-n avatar-group-item" itemprop="follows"><img alt="@codeforbelgium" class="avatar" height="42" src="https://avatars2.githubusercontent.com/u/7712217?v=3&amp;s=84" width="42"></a>
+	              <a href="/codeforgabon" aria-label="codeforgabon" class="tooltipped tooltipped-n avatar-group-item" itemprop="follows"><img alt="@codeforgabon" class="avatar" height="42" src="https://avatars2.githubusercontent.com/u/7712280?v=3&amp;s=84" width="42"></a>
+        </div>
+		</div>
+	</div>
+	<div class="col-lg-9">
+	  	<div>
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active">
+					<a href="#contributions" aria-controls="contributions" role="tab" data-toggle="tab">Contributions</a>
+				</li>
+				<li role="presentation"><a href="#repositories" aria-controls="repositories" role="tab" data-toggle="tab">Repositories</a></li>
+				<li role="presentation"><a href="#publicactivity" aria-controls="public activity" role="tab" data-toggle="tab">Public Activity</a></li>
+			</ul>
+
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="contributions">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="list-group">
+								<a href="#" class="list-group-item active">
+									Popular Repositories
+								</a>
+								<a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+								<a href="#" class="list-group-item">Morbi leo risus</a>
+								<a href="#" class="list-group-item">Porta ac consectetur ac</a>
+								<a href="#" class="list-group-item">Vestibulum at eros</a>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="list-group">
+								<a href="#" class="list-group-item active">
+									Repositories contributed to
+								</a>
+								<a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+								<a href="#" class="list-group-item">Morbi leo risus</a>
+								<a href="#" class="list-group-item">Porta ac consectetur ac</a>
+								<a href="#" class="list-group-item">Vestibulum at eros</a>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="list-group public-contributions">
+							<a href="#" class="list-group-item active col-lg-12">
+								Public contributions
+							</a>
+						</div>
+					</div>	
+				</div>
+				<div role="tabpanel" class="tab-pane" id="repositories">
+					Another thing here
+				</div>
+				<div role="tabpanel" class="tab-pane" id="publicactivity">
+					and finally here
+				</div>
+			</div>
+
+		</div>
+	</div>
+</main>

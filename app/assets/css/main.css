@@ -2,69 +2,170 @@
 		padding: 5px 10px 0 100px;
 	}
 
-	.fa-2x {
-	    font-size: 2.2em;
-	}
+.fa-2x {
+    font-size: 2.2em;
+}
 
-	.navbar-form .form-control{
-		width: 400px;
-	}
+.navbar-form .form-control{
+	width: 400px;
+}
 
-	.header-nav-item {
-	    float: left;
-	    
-	}
+.header-nav-item {
+    float: left;
+    
+}
 
-	.header-nav-link{
-	    display: block;
-	    padding: 12px 8px;
-	    font-size: 15px;
-	    font-weight: bold;
-	    line-height: 20px;
-	    color: #333;
-	}
+.header-nav-link{
+    display: block;
+    padding: 12px 8px;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #333;
+}
 
-	.header-nav {
-	    list-style: none;
-	    margin-left: -18px;
-	}
+.header-nav {
+    list-style: none;
+    margin-left: -18px;
+}
 
-	a{
-		text-decoration: none;
-	}
+a{
+	text-decoration: none;
+}
 
-	img.profile.logo{
-		width: 20px;
-	    height: 20px;
-	    border-radius: 3px;
-	}
+img.profile.logo{
+	width: 20px;
+    height: 20px;
+    border-radius: 3px;
+}
 
-	.tab-pane{
-	    padding-top: 20px;
-	}
+.tab-pane{
+    padding-top: 20px;
+}
 
-	.public-contributions{
-	    width: 97%;
-    	margin-left: 1.5%;
-	}
+.public-contributions{
+    width: 97%;
+	margin-left: 1.5%;
+}
 
-	.fullname{
-		display: block;
-	    overflow: hidden;
-	    width: 100%;
-	    font-size: 26px;
-	    line-height: 30px;
-	    text-overflow: ellipsis;
-	}
+.fullname{
+	display: block;
+    overflow: hidden;
+    width: 100%;
+    font-size: 26px;
+    line-height: 30px;
+    text-overflow: ellipsis;
+}
 
-	.username{
-		display: block;
-	    overflow: hidden;
-	    width: 100%;
-	    font-size: 20px;
-	    font-style: normal;
-	    font-weight: 300;
-	    line-height: 24px;
-	    color: #666;
-	    text-overflow: ellipsis;
-	}
+.username{
+	display: block;
+    overflow: hidden;
+    width: 100%;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 24px;
+    color: #666;
+    text-overflow: ellipsis;
+}
+
+.vcard-names {
+    margin-top: 5px;
+    line-height: 1;
+}
+
+.vcard-details {
+    list-style: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top: 1px solid #eee;
+    padding-left: 0;
+}
+
+.vcard-detail {
+    width: 100%;
+    padding: 2px 0 2px 24px;
+    overflow-x: hidden;
+    white-space: nowrap;
+    font-size: 14px;
+    text-overflow: ellipsis;
+}
+
+.vcard-detail .octicon {
+    float: left;
+    width: 16px;
+    text-align: center;
+    margin-left: -24px;
+    color: #999;
+}
+
+.octicon{
+    display: inline-block;
+    text-decoration: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.vcard-stats {
+    margin-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.vcard-stat {
+    float: left;
+    width: 33.333%;
+    font-size: 11px;
+    text-transform: capitalize;
+}
+
+.vcard-stats:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.vcard-stat-count {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.tooltipped {
+    position: relative;
+}
+
+.text-muted {
+    color: #767676;
+}
+
+
+.avatar-group-item {
+    display: inline-block;
+    margin-bottom: 3px;
+}
+
+a {
+    color: #4078c0;
+    text-decoration: none;
+}
+
+.avatar {
+    display: inline-block;
+    overflow: hidden;
+    line-height: 1;
+    vertical-align: middle;
+    border-radius: 3px;
+}
+
+img {
+    border: 0;
+}

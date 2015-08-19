@@ -68,25 +68,36 @@
 	_module('github.philos').config(function ($routeProvider, $locationProvider) {
 
 		$routeProvider.when('/:login', {
-			template: 'user.html',
+			//templateUrl:'templates/user.html',
+			template: '<gp-user-profile/>'
+
+		});
+	}).directive('gpNavbar', function () {
+		return {
+			templateUrl: 'templates/github-navbar.html'
+		};
+	}).directive('gpUserProfile', function () {
+		return {
+			templateUrl: 'templates/github-main.html',
 			controllerAs: 'user',
 			controller: function controller($http, $routeParams, $log) {
 
 				var url = 'https://api.github.com/users/' + $routeParams.login;
 
-				$http.get(url).then(function (response) {
+				var vm = this;
 
-					this.model = response.data;
+				$http.get(url, { cache: true }).then(function (response) {
 
-					debugger;
+					vm.model = response.data;
+
+					$http.get(url + '/starred', { cache: true }).then(function (response) {
+
+						vm.model.starred = response.data.length;
+					});
 
 					// Define all the calls to get more data
 				});
 			}
-		});
-	}).directive('githubNavbar', function () {
-		return {
-			templateUrl: 'templates/github-navbar.html'
 		};
 	});
 
@@ -39308,7 +39319,7 @@
 
 
 	// module
-	exports.push([module.id, ".navbar-brand{\n\t\tpadding: 5px 10px 0 100px;\n\t}\n\n\t.fa-2x {\n\t    font-size: 2.2em;\n\t}\n\n\t.navbar-form .form-control{\n\t\twidth: 400px;\n\t}\n\n\t.header-nav-item {\n\t    float: left;\n\t    \n\t}\n\n\t.header-nav-link{\n\t    display: block;\n\t    padding: 12px 8px;\n\t    font-size: 15px;\n\t    font-weight: bold;\n\t    line-height: 20px;\n\t    color: #333;\n\t}\n\n\t.header-nav {\n\t    list-style: none;\n\t    margin-left: -18px;\n\t}\n\n\ta{\n\t\ttext-decoration: none;\n\t}\n\n\timg.profile.logo{\n\t\twidth: 20px;\n\t    height: 20px;\n\t    border-radius: 3px;\n\t}\n\n\t.tab-pane{\n\t    padding-top: 20px;\n\t}\n\n\t.public-contributions{\n\t    width: 97%;\n    \tmargin-left: 1.5%;\n\t}\n\n\t.fullname{\n\t\tdisplay: block;\n\t    overflow: hidden;\n\t    width: 100%;\n\t    font-size: 26px;\n\t    line-height: 30px;\n\t    text-overflow: ellipsis;\n\t}\n\n\t.username{\n\t\tdisplay: block;\n\t    overflow: hidden;\n\t    width: 100%;\n\t    font-size: 20px;\n\t    font-style: normal;\n\t    font-weight: 300;\n\t    line-height: 24px;\n\t    color: #666;\n\t    text-overflow: ellipsis;\n\t}", ""]);
+	exports.push([module.id, ".navbar-brand{\n\t\tpadding: 5px 10px 0 100px;\n\t}\n\n.fa-2x {\n    font-size: 2.2em;\n}\n\n.navbar-form .form-control{\n\twidth: 400px;\n}\n\n.header-nav-item {\n    float: left;\n    \n}\n\n.header-nav-link{\n    display: block;\n    padding: 12px 8px;\n    font-size: 15px;\n    font-weight: bold;\n    line-height: 20px;\n    color: #333;\n}\n\n.header-nav {\n    list-style: none;\n    margin-left: -18px;\n}\n\na{\n\ttext-decoration: none;\n}\n\nimg.profile.logo{\n\twidth: 20px;\n    height: 20px;\n    border-radius: 3px;\n}\n\n.tab-pane{\n    padding-top: 20px;\n}\n\n.public-contributions{\n    width: 97%;\n\tmargin-left: 1.5%;\n}\n\n.fullname{\n\tdisplay: block;\n    overflow: hidden;\n    width: 100%;\n    font-size: 26px;\n    line-height: 30px;\n    text-overflow: ellipsis;\n}\n\n.username{\n\tdisplay: block;\n    overflow: hidden;\n    width: 100%;\n    font-size: 20px;\n    font-style: normal;\n    font-weight: 300;\n    line-height: 24px;\n    color: #666;\n    text-overflow: ellipsis;\n}\n\n.vcard-names {\n    margin-top: 5px;\n    line-height: 1;\n}\n\n.vcard-details {\n    list-style: none;\n    padding-top: 15px;\n    padding-bottom: 15px;\n    border-top: 1px solid #eee;\n    padding-left: 0;\n}\n\n.vcard-detail {\n    width: 100%;\n    padding: 2px 0 2px 24px;\n    overflow-x: hidden;\n    white-space: nowrap;\n    font-size: 14px;\n    text-overflow: ellipsis;\n}\n\n.vcard-detail .octicon {\n    float: left;\n    width: 16px;\n    text-align: center;\n    margin-left: -24px;\n    color: #999;\n}\n\n.octicon{\n    display: inline-block;\n    text-decoration: none;\n    text-rendering: auto;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n}\n\n.vcard-stats {\n    margin-bottom: 10px;\n    padding-top: 15px;\n    padding-bottom: 15px;\n    text-align: center;\n    border-top: 1px solid #eee;\n    border-bottom: 1px solid #eee;\n}\n\n.vcard-stat {\n    float: left;\n    width: 33.333%;\n    font-size: 11px;\n    text-transform: capitalize;\n}\n\n.vcard-stats:after {\n    display: table;\n    clear: both;\n    content: \"\";\n}\n\n.vcard-stat-count {\n    display: block;\n    font-size: 28px;\n    font-weight: bold;\n    line-height: 1;\n}\n\n.tooltipped {\n    position: relative;\n}\n\n.text-muted {\n    color: #767676;\n}\n\n\n.avatar-group-item {\n    display: inline-block;\n    margin-bottom: 3px;\n}\n\na {\n    color: #4078c0;\n    text-decoration: none;\n}\n\n.avatar {\n    display: inline-block;\n    overflow: hidden;\n    line-height: 1;\n    vertical-align: middle;\n    border-radius: 3px;\n}\n\nimg {\n    border: 0;\n}", ""]);
 
 	// exports
 
