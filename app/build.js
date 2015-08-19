@@ -58,66 +58,84 @@
 
 	var _qs2 = _interopRequireDefault(_qs);
 
+	__webpack_require__(10);
+
 	var bootstrap = _angular2['default'].bootstrap;
 	var _module = _angular2['default'].module;
 
 	_module('github.philos', ['ngRoute']);
 
-	_module('github.philos').controller('ShellController', ShellController).config(function ($routeProvider, $locationProvider) {
+	_module('github.philos').config(function ($routeProvider, $locationProvider) {
 
-		$routeProvider.when('/', {
-			template: '',
-			controller: function controller($window, $http) {
-				if ($window.localStorage.token) {
-					debugger;
-					$http.get();
-				}
-			}
-		}).when('/github/callback', {
-			template: 'inside callback',
-			controller: function controller($route, $window, $http, $location) {
-				var code = $route.current.params.code;
+		$routeProvider.when('/:login', {
+			template: 'user.html',
+			controllerAs: 'user',
+			controller: function controller($http, $routeParams, $log) {
 
-				// Save the code in localstorage
-
-				$window.localStorage.code = code;
-
-				var url = "https://philos-github.herokuapp.com/authenticate/" + code;
-
-				debugger;
+				var url = 'https://api.github.com/users/' + $routeParams.login;
 
 				$http.get(url).then(function (response) {
-					$window.localStorage.token = response.data.token;
-					$location.path('/');
-				}, function (err) {
+
+					this.model = response.data;
 
 					debugger;
+
+					// Define all the calls to get more data
 				});
 			}
 		});
-
-		$locationProvider.html5Mode(true);
+	}).directive('githubNavbar', function () {
+		return {
+			templateUrl: 'templates/github-navbar.html'
+		};
 	});
 
-	function ShellController($http, $log, $route) {
-		$log.debug('inside $log', window.location.origin);
-		this.connect = function () {
-
-			var url = "https://github.com/login/oauth/authorize?";
-
-			var options = {
-				client_id: "c429929bc446bcd4f31e",
-				scope: "user,repo",
-				redirect_uri: window.location.origin + "/github/callback"
-			};
-
-			var json = _angular2['default'].toJson(options);
-
-			window.location = url + _qs2['default'].stringify(options);
-		};
-	}
-
 	bootstrap(document.body, ['github.philos']);
+
+	// function ShellController($http, $log, $route) {
+	// 	$log.debug('inside $log', window.location.origin);
+	// 	this.connect = function(){
+
+	// 		var url = "https://github.com/login/oauth/authorize?";
+
+	// 		var options = {
+	// 			client_id: "c429929bc446bcd4f31e",
+	// 			scope: "user,repo",
+	// 			redirect_uri: window.location.origin+ "/github/callback"
+	// 		};
+
+	// 		var json = angular.toJson(options);
+
+	// 		window.location = url+ qs.stringify(options);
+	// 	}
+	// }
+
+	// .when('/github/callback', {
+	// 	template: 'inside callback',
+	// 	controller: function($route, $window, $http, $location){
+	// 		var code = $route.current.params.code;
+
+	// 		// Save the code in localstorage
+
+	// 		$window.localStorage.code = code;
+
+	// 		var url = "https://philos-github.herokuapp.com/authenticate/"+code;
+
+	// 		debugger
+
+	// 		$http
+	// 			.get(url)
+	// 			.then(function(response){
+	// 				$window.localStorage.token = response.data.token;
+	// 				$location.path('/');
+	// 			}, function(err){
+
+	// 				debugger
+	// 			});
+	// 	}
+	// });
+
+	// //$locationProvider.html5Mode(true);
 
 /***/ },
 /* 1 */
@@ -39253,6 +39271,327 @@
 
 	    return Utils.compact(obj);
 	};
+
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(11);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(13)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./main.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./main.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(12)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".navbar-brand{\n\t\tpadding: 5px 10px 0 100px;\n\t}\n\n\t.fa-2x {\n\t    font-size: 2.2em;\n\t}\n\n\t.navbar-form .form-control{\n\t\twidth: 400px;\n\t}\n\n\t.header-nav-item {\n\t    float: left;\n\t    \n\t}\n\n\t.header-nav-link{\n\t    display: block;\n\t    padding: 12px 8px;\n\t    font-size: 15px;\n\t    font-weight: bold;\n\t    line-height: 20px;\n\t    color: #333;\n\t}\n\n\t.header-nav {\n\t    list-style: none;\n\t    margin-left: -18px;\n\t}\n\n\ta{\n\t\ttext-decoration: none;\n\t}\n\n\timg.profile.logo{\n\t\twidth: 20px;\n\t    height: 20px;\n\t    border-radius: 3px;\n\t}\n\n\t.tab-pane{\n\t    padding-top: 20px;\n\t}\n\n\t.public-contributions{\n\t    width: 97%;\n    \tmargin-left: 1.5%;\n\t}\n\n\t.fullname{\n\t\tdisplay: block;\n\t    overflow: hidden;\n\t    width: 100%;\n\t    font-size: 26px;\n\t    line-height: 30px;\n\t    text-overflow: ellipsis;\n\t}\n\n\t.username{\n\t\tdisplay: block;\n\t    overflow: hidden;\n\t    width: 100%;\n\t    font-size: 20px;\n\t    font-style: normal;\n\t    font-weight: 300;\n\t    line-height: 24px;\n\t    color: #666;\n\t    text-overflow: ellipsis;\n\t}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0;
+
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+
+	function createStyleElement() {
+		var styleElement = document.createElement("style");
+		var head = getHeadElement();
+		styleElement.type = "text/css";
+		head.appendChild(styleElement);
+		return styleElement;
+	}
+
+	function createLinkElement() {
+		var linkElement = document.createElement("link");
+		var head = getHeadElement();
+		linkElement.rel = "stylesheet";
+		head.appendChild(linkElement);
+		return linkElement;
+	}
+
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement());
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement();
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				styleElement.parentNode.removeChild(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement();
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				styleElement.parentNode.removeChild(styleElement);
+			};
+		}
+
+		update(obj);
+
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+
+	var replaceText = (function () {
+		var textStore = [];
+
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+		var sourceMap = obj.sourceMap;
+
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+		var sourceMap = obj.sourceMap;
+
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+
+		var blob = new Blob([css], { type: "text/css" });
+
+		var oldSrc = linkElement.href;
+
+		linkElement.href = URL.createObjectURL(blob);
+
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
+	}
 
 
 /***/ }

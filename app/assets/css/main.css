@@ -1,0 +1,70 @@
+.navbar-brand{
+		padding: 5px 10px 0 100px;
+	}
+
+	.fa-2x {
+	    font-size: 2.2em;
+	}
+
+	.navbar-form .form-control{
+		width: 400px;
+	}
+
+	.header-nav-item {
+	    float: left;
+	    
+	}
+
+	.header-nav-link{
+	    display: block;
+	    padding: 12px 8px;
+	    font-size: 15px;
+	    font-weight: bold;
+	    line-height: 20px;
+	    color: #333;
+	}
+
+	.header-nav {
+	    list-style: none;
+	    margin-left: -18px;
+	}
+
+	a{
+		text-decoration: none;
+	}
+
+	img.profile.logo{
+		width: 20px;
+	    height: 20px;
+	    border-radius: 3px;
+	}
+
+	.tab-pane{
+	    padding-top: 20px;
+	}
+
+	.public-contributions{
+	    width: 97%;
+    	margin-left: 1.5%;
+	}
+
+	.fullname{
+		display: block;
+	    overflow: hidden;
+	    width: 100%;
+	    font-size: 26px;
+	    line-height: 30px;
+	    text-overflow: ellipsis;
+	}
+
+	.username{
+		display: block;
+	    overflow: hidden;
+	    width: 100%;
+	    font-size: 20px;
+	    font-style: normal;
+	    font-weight: 300;
+	    line-height: 24px;
+	    color: #666;
+	    text-overflow: ellipsis;
+	}
