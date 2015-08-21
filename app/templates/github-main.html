@@ -84,10 +84,26 @@
 								<a href="#" class="list-group-item active">
 									Popular Repositories
 								</a>
-								<a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-								<a href="#" class="list-group-item">Morbi leo risus</a>
-								<a href="#" class="list-group-item">Porta ac consectetur ac</a>
-								<a href="#" class="list-group-item">Vestibulum at eros</a>
+								<ul class="boxed-group-inner mini-repo-list">
+									<li class="public source"  ng-repeat="repo in user.model.repos | limitTo:5">
+								      	<a ng-href="{{repo.url}}" class="mini-repo-list-item css-truncate">
+								        	<span class="repo-icon octicon">
+								        		<i class="fa fa-code-fork"></i>
+								        	</span>
+									      	<span class="repo-and-owner css-truncate-target">
+												<span class="repo" title="{{repo.name}}">{{repo.name}}</span>
+									      	</span>
+									      	
+									      	<span class="stars">
+									        	{{repo.stargazers_count}}
+									        	<span class="octicon">
+									        		<i class="fa fa-star"></i>
+									        	</span>
+									      	</span>
+									      	<span class="repo-description css-truncate-target">{{repo.description}}</span>
+									    </a>
+								  	</li>
+								</ul>
 							</div>
 						</div>
 						<div class="col-lg-6">
@@ -95,10 +111,26 @@
 								<a href="#" class="list-group-item active">
 									Repositories contributed to
 								</a>
-								<a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-								<a href="#" class="list-group-item">Morbi leo risus</a>
-								<a href="#" class="list-group-item">Porta ac consectetur ac</a>
-								<a href="#" class="list-group-item">Vestibulum at eros</a>
+								<ul class="boxed-group-inner mini-repo-list">
+									<li class="public source"  ng-repeat="repo in user.model.repos | limitTo:5">
+								      	<a ng-href="{{repo.url}}" class="mini-repo-list-item css-truncate">
+								        	<span class="repo-icon octicon">
+								        		<i class="fa fa-code-fork"></i>
+								        	</span>
+									      	<span class="repo-and-owner css-truncate-target">
+												<span class="repo" title="{{repo.name}}">{{repo.name}}</span>
+									      	</span>
+									      	
+									      	<span class="stars">
+									        	{{repo.stargazers_count}}
+									        	<span class="octicon">
+									        		<i class="fa fa-star"></i>
+									        	</span>
+									      	</span>
+									      	<span class="repo-description css-truncate-target">{{repo.description}}</span>
+									    </a>
+								  	</li>
+								</ul>
 							</div>
 						</div>
 					</div>

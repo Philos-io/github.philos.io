@@ -53,9 +53,21 @@ module('github.philos')
 								vm.model.organisations = response.data;
 							});
 
-												
+						$http.get(vm.model.repos_url, {cache: true})
+							.then(function(response){
+								//vm.model.repos = response.data;
 
-						// Define all the calls to get more data
+
+								vm.model.repos = response.data.sort(function(repo1, repo2){ 
+
+								      if(repo1.stargazers_count > repo2.stargazers_count)  return -1;
+
+								      if(repo1.stargazers_count < repo2.stargazers_count) return 1;
+
+								      if(repo1.stargazers_count === repo2.stargazers_count) return 0;
+
+							 	});
+							});
 					});
 			}
 		}

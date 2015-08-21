@@ -169,3 +169,89 @@ a {
 img {
     border: 0;
 }
+
+.mini-repo-list-item {
+    position: relative;
+    display: block;
+    padding: 6px 64px 6px 30px;
+    font-size: 14px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.mini-repo-list>li:first-child .mini-repo-list-item {
+    border-top: 0;
+}
+
+.mini-repo-list-item .repo-icon {
+    float: left;
+    margin-top: 2px;
+    margin-left: -20px;
+    color: #666;
+}
+
+.octicon-repo-delete:before, .octicon-repo:before {
+    content: '\f001';
+}
+
+.mini-repo-list-item .repo-and-owner {
+    max-width: 220px;
+}
+
+.mini-repo-list-item .repo {
+    font-weight: bold;
+}
+
+.popular-repos .mini-repo-list-item .stars {
+    margin-top: 16px;
+}
+
+.mini-repo-list-item .stars {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #888;
+}
+
+.mini-repo-list-item .repo-description {
+    display: block;
+    max-width: 100%;
+    font-size: 12px;
+    color: #767676;
+    line-height: 21px;
+}
+
+.css-truncate.css-truncate-target, .css-truncate .css-truncate-target {
+    display: inline-block;
+    max-width: 125px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+.boxed-group.flush .boxed-group-inner {
+    padding: 0;
+}
+
+.boxed-group-inner {
+    padding: 1px 10px;
+    background: #fff;
+    border: 1px solid #d8d8d8;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: #666;
+    font-size: 13px;
+}
+
+
+ul, ol {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.mini-repo-list {
+    list-style: none;
+}
