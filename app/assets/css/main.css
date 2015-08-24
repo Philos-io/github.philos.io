@@ -255,3 +255,28 @@ ul, ol {
 .mini-repo-list {
     list-style: none;
 }
+
+.contrib-column {
+    padding: 15px 0;
+    text-align: center;
+    border-left: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    font-size: 11px;
+}
+
+.text-muted {
+    color: #767676;
+}
+
+.contrib-number {
+    font-weight: 300;
+    line-height: 1.3em;
+    font-size: 24px;
+    display: block;
+    color: #333;
+}
+
+.last-column{
+    border-right: 1px solid #ddd;
+}

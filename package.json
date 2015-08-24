@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "webpack -w",
+    "booyaa": "webpack && surge -p app",
     "test": "mocha -w"
   },
   "repository": {
