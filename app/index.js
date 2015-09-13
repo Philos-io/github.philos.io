@@ -9,7 +9,7 @@ var {
 
 
 module('github.philos', ['ngRoute']);
-	
+
 
 module('github.philos')
 	.config(function($routeProvider, $locationProvider){
@@ -18,7 +18,7 @@ module('github.philos')
 			.when('/:login', {
 				//templateUrl:'templates/user.html',
 				template: '<gp-user-profile/>'
-				
+
 			});
 	})
 	.directive('gpNavbar', function(){
@@ -30,7 +30,7 @@ module('github.philos')
 		return {
 			templateUrl: 'templates/github-main.html',
 			controllerAs: 'user',
-			controller: function($http, $routeParams, $log){
+			controller: function($q,$http, $routeParams, $log){
 
 				var url = 'https://api.github.com/users/'+$routeParams.login;
 
@@ -42,52 +42,36 @@ module('github.philos')
 
 						vm.model = response.data;
 
-						$http.get(url+ '/starred', {cache: true})
-							.then(function(response){
-
-								vm.model.starred = response.data.length;
-							});
-
-						$http.get(vm.model.organizations_url, {cache: true})
-							.then(function(response){
-								vm.model.organisations = response.data;
-							});
-
-						$http.get(vm.model.repos_url, {cache: true})
-							.then(function(response){
-								//vm.model.repos = response.data;
+						let starredPromise = $http.get(url+ '/starred', {cache: true});
+						let organisationsPromise	= $http.get(vm.model.organizations_url, {cache: true});
+						let reposPromise = $http.get(vm.model.repos_url, {cache: true});
 
 
-								vm.model.repos = response.data.sort(function(repo1, repo2){ 
+						$q.all([starredPromise, organisationsPromise, reposPromise])
+							.then(function(responses){
 
+								// Gets the number of stars
+								var starred = responses[0].data;
+								vm.model.stars = starred;
+
+								debugger
+
+								// Gets the list of organisations
+								var organisations = responses[1].data;
+								vm.model.organisations = organisations;
+
+								// Get the repos
+								var repos = responses[2].data;
+								vm.model.repos = repos.sort(function(repo1, repo2){
 								      if(repo1.stargazers_count > repo2.stargazers_count)  return -1;
-
 								      if(repo1.stargazers_count < repo2.stargazers_count) return 1;
-
 								      if(repo1.stargazers_count === repo2.stargazers_count) return 0;
-
 							 	});
 							});
 					});
 			}
-		}
+		};
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 bootstrap(document.body, ['github.philos']);
 
 // function ShellController($http, $log, $route) {
