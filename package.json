@@ -9,7 +9,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "booyaa": "webpack && surge -p app",
-    "test": "mocha -w"
+    "test": "karma start"
   },
   "repository": {
     "type": "git",
@@ -45,6 +45,7 @@
     "angular-route": "^1.4.3",
     "angular-router": "0.0.2",
     "bootstrap": "^3.3.5",
+    "chai": "^3.3.0",
     "cors": "^2.7.1",
     "express": "^4.13.3",
     "jquery": "^2.1.4",
